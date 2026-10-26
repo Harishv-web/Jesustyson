@@ -885,6 +885,61 @@
     }
 
     /* ==========================================================================
+       GAMES MARKETPLACE
+       ========================================================================== */
+    .games-section {
+      padding: 6.5rem 0;
+      background: linear-gradient(180deg, rgba(10, 14, 24, .42), rgba(7, 9, 14, .92));
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      scroll-margin-top: 88px;
+    }
+    .games-kicker {
+      display: inline-flex; align-items: center; gap: .55rem;
+      color: #67e8f9; font-size: .78rem; font-weight: 800;
+      letter-spacing: .14em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .games-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+    .game-card {
+      display: flex; flex-direction: column; min-width: 0; overflow: hidden;
+      background: linear-gradient(155deg, rgba(22, 28, 44, .96), rgba(11, 15, 25, .98));
+      border: 1px solid rgba(148, 163, 184, .17); border-radius: 20px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, .24);
+      transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+    }
+    .game-card:hover {
+      transform: translateY(-6px); border-color: rgba(103, 232, 249, .48);
+      box-shadow: 0 24px 55px rgba(0, 0, 0, .36), 0 0 28px rgba(6, 182, 212, .08);
+    }
+    .game-art { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #111827; }
+    .game-art img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .55s cubic-bezier(.2,.7,.2,1); }
+    .game-card:hover .game-art img { transform: scale(1.045); }
+    .game-art::after { content: ""; position: absolute; inset: 35% 0 0; background: linear-gradient(180deg, transparent, rgba(7, 9, 14, .82)); pointer-events: none; }
+    .game-platform {
+      position: absolute; z-index: 1; top: .85rem; left: .85rem; padding: .36rem .65rem;
+      border: 1px solid rgba(255,255,255,.18); border-radius: 999px; background: rgba(7,9,14,.76);
+      color: #f8fafc; font-size: .7rem; font-weight: 700; letter-spacing: .04em; backdrop-filter: blur(10px);
+    }
+    .game-copy { display: flex; flex: 1; flex-direction: column; padding: 1.35rem; }
+    .game-copy h3 { font-size: 1.22rem; margin-bottom: .7rem; color: #f8fafc; }
+    .game-copy p { color: var(--text-muted); font-size: .9rem; line-height: 1.75; margin-bottom: 1.25rem; }
+    .game-buy {
+      width: 100%; margin-top: auto; background: #16a34a; color: #fff;
+      border: 1px solid rgba(134, 239, 172, .3); border-radius: 12px; padding: .85rem 1rem;
+      font-size: .92rem; font-weight: 800; text-decoration: none; display: inline-flex;
+      align-items: center; justify-content: center; gap: .6rem;
+      transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+    }
+    .game-buy:hover { background: #15803d; transform: translateY(-1px); box-shadow: 0 8px 22px rgba(22, 163, 74, .2); }
+    .games-note { margin: 1.5rem auto 0; max-width: 680px; color: var(--text-dark); text-align: center; font-size: .82rem; }
+    @media (max-width: 900px) { .games-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 600px) {
+      .games-section { padding: 4.5rem 0; }
+      .games-grid { grid-template-columns: 1fr; gap: 1.1rem; }
+      .game-copy { padding: 1.15rem; }
+    }
+
+    /* ==========================================================================
        PRICING TIERS
        ========================================================================== */
     .pricing-section {
@@ -1154,6 +1209,7 @@
     <a href="#studio" class="mobile-link">Studio</a>
     <a href="#features" class="mobile-link">Technology</a>
     <a href="#showcase" class="mobile-link">Showcase</a>
+    <a href="#games" class="mobile-link">Games</a>
     <a href="#pricing" class="mobile-link">Pricing</a>
     <a href="#studio" class="btn btn-primary mobile-link" style="margin-top: 1rem;">Launch Studio</a>
   </div>
@@ -1172,6 +1228,7 @@
         <li><a href="#studio">Studio</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#showcase">Showcase</a></li>
+        <li><a href="#games">Games</a></li>
         <li><a href="#pricing">Pricing</a></li>
       </ul>
 
@@ -1486,6 +1543,59 @@
           </div>
 
         </div>
+      </div>
+    </section>
+
+    <!-- Games Marketplace -->
+    <section class="games-section" id="games" aria-labelledby="games-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="games-kicker"><i class="fa-solid fa-gamepad" aria-hidden="true"></i> The Game Shelf</span>
+          <h2 id="games-title">Find your next <span class="gradient-text">adventure.</span></h2>
+          <p>Three worlds. Three very different ways to escape the everyday.</p>
+        </div>
+        <div class="games-grid">
+          <article class="game-card">
+            <div class="game-art">
+              <img src="https://cdn.akamai.steamstatic.com/steam/apps/227300/header.jpg" alt="Euro Truck Simulator 2 game artwork" loading="lazy" decoding="async">
+              <span class="game-platform">PC GAME</span>
+            </div>
+            <div class="game-copy">
+              <h3>Euro Truck Simulator 2</h3>
+              <p>Take the wheel across a detailed European road network, build your transport business, and settle into the satisfaction of long-haul driving.</p>
+              <a class="game-buy" href="https://wa.me/919361800671?text=Hi%20Jamal%2C%20I%20am%20interested%20in%20Euro%20Truck%20Simulator%202%20and%20would%20like%20pricing%2C%20availability%2C%20and%20purchase%20details." target="_blank" rel="noopener noreferrer" aria-label="Ask Jamal about buying Euro Truck Simulator 2 on WhatsApp">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Buy Now <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+          <article class="game-card">
+            <div class="game-art">
+              <img src="https://cdn.akamai.steamstatic.com/steam/apps/271590/header.jpg" alt="Grand Theft Auto V game artwork" loading="lazy" decoding="async">
+              <span class="game-platform">PC GAME</span>
+            </div>
+            <div class="game-copy">
+              <h3>Grand Theft Auto V</h3>
+              <p>Explore Los Santos in an open-world crime story packed with high-stakes missions, wild driving, and a city full of opportunities.</p>
+              <a class="game-buy" href="https://wa.me/919361800671?text=Hi%20Jamal%2C%20I%20am%20interested%20in%20Grand%20Theft%20Auto%20V%20and%20would%20like%20pricing%2C%20availability%2C%20and%20purchase%20details." target="_blank" rel="noopener noreferrer" aria-label="Ask Jamal about buying Grand Theft Auto V on WhatsApp">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Buy Now <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+          <article class="game-card">
+            <div class="game-art">
+              <img src="https://cdn.akamai.steamstatic.com/steam/apps/2668510/header.jpg" alt="Red Dead Redemption game artwork" loading="lazy" decoding="async">
+              <span class="game-platform">PC GAME</span>
+            </div>
+            <div class="game-copy">
+              <h3>Red Dead Redemption</h3>
+              <p>Ride through the fading American frontier in a cinematic western adventure shaped by outlaws, loyalty, and the past catching up.</p>
+              <a class="game-buy" href="https://wa.me/919361800671?text=Hi%20Jamal%2C%20I%20am%20interested%20in%20Red%20Dead%20Redemption%20and%20would%20like%20pricing%2C%20availability%2C%20and%20purchase%20details." target="_blank" rel="noopener noreferrer" aria-label="Ask Jamal about buying Red Dead Redemption on WhatsApp">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Buy Now <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+        <p class="games-note">Game editions, availability, and pricing are confirmed directly with Jamal on WhatsApp.</p>
       </div>
     </section>
 
